@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class BruteForce {
     public static String decryptCaesar(String encryptedText, int shift) {
         StringBuilder decryptedText = new StringBuilder();
-
         for (char c : encryptedText.toCharArray()) {
             if (c >= 'A' && c <= 'Z') { 
                 char decryptedChar = (char) (((c - 'A' - shift + 26) % 26) + 'A');
@@ -19,18 +18,12 @@ public class BruteForce {
                 decryptedText.append(c);
             }
         }
-
         return decryptedText.toString();
      }
-   
       public static void main(String[] args) {
      Scanner scanner = new Scanner(System.in);
-
-        // Step 1: Take encrypted message as input
         System.out.print("Enter the encrypted message: ");
-        String encryptedText = scanner.nextLine();
-
-        // Step 2: Try all possible Caesar shifts (0 to 25)
+        String encryptedText = scanner.nextLine();     
         System.out.println("All possible decrypted texts:");
         for (int shift = 0; shift < 26; shift++) {
             String decryptedText = decryptCaesar(encryptedText, shift);
